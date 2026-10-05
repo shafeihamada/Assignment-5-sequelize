@@ -1,0 +1,233 @@
+Documentation
+APIs Assignment 5
+﻿
+
+USER APIs
+﻿
+
+POST
+Add New User
+http://localhost:3000/users/signup
+﻿
+
+Body
+raw (json)
+json
+{
+  "name": "Ahmed",
+  "email": "ahmed@example.com",
+  "password": "password123",
+  "role": "user"
+}
+POST
+Email Exist
+http://localhost:3000/users/signup
+﻿
+
+Body
+raw (json)
+json
+{
+  "name": "Ali",
+  "email": "ahmed@example.com",
+  "password": "password12",
+  "role": "user"
+}
+POST
+Add New User 2
+http://localhost:3000/users/signup
+﻿
+
+Body
+raw (json)
+json
+{
+  "name": "shafei",
+  "email": "shafei@example.com",
+  "password": "password23",
+  "role": "user"
+}
+PUT
+Update User 1
+http://localhost:3000/users/1
+﻿
+
+Body
+raw (json)
+json
+{
+  "name": "hamada",
+  "email": "ahmed@example.com",
+  "password": "password123",
+  "role": "user"
+}
+GET
+Get User By Email
+http://localhost:3000/users/by-email?email=ahmed@example.com
+﻿
+
+Query Params
+email
+ahmed@example.com
+GET
+Get User By UNexist Email
+http://localhost:3000/users/by-email?email=ali@example.com
+﻿
+
+Query Params
+email
+ali@example.com
+GET
+Get by ID Without role
+http://localhost:3000/users/1
+﻿
+
+Post APIs
+﻿
+
+POST
+Create new post
+http://localhost:3000/posts
+﻿
+
+Body
+raw (json)
+json
+{
+  "title": "First Post",
+  "content": "This is the content of my first post.",
+  "userId": 1 
+}
+DELETE
+Delete post by different user
+http://localhost:3000/posts/1
+﻿
+
+Body
+raw (json)
+json
+{
+  
+  "userId": 2 
+}
+DELETE
+Delete post not found
+http://localhost:3000/posts/3
+﻿
+
+Body
+raw (json)
+json
+{
+  
+  "userId": 1 
+}
+DELETE
+Delete post by its user
+http://localhost:3000/posts/1
+﻿
+
+Body
+raw (json)
+json
+{
+  
+  "userId": 1 
+}
+GET
+Get all posts
+http://localhost:3000/posts/details
+﻿
+
+GET
+Get all posts by comment-count
+http://localhost:3000/posts/comment-count
+﻿
+
+Comment APIs
+﻿
+
+POST
+Add Comment
+http://localhost:3000/comments
+﻿
+
+Body
+raw (json)
+json
+{
+  "comments": [
+    {
+      "content": "This is the first comment.",
+      "postId": 1,
+      "userId": 1
+    }
+   
+  ]
+}
+PATCH
+Update comment not found
+http://localhost:3000/comments/1
+﻿
+
+Body
+raw (json)
+json
+{
+    "userId": 1,
+    "content": "comment not found!"
+}
+PATCH
+Update comment by different user
+http://localhost:3000/comments/25
+﻿
+
+Body
+raw (json)
+json
+{
+    "userId": 2,
+    "content": "not author!"
+}
+PATCH
+Update comment
+http://localhost:3000/comments/25
+﻿
+
+Body
+raw (json)
+View More
+json
+{
+    "userId": 1,
+    "content": "This comment has been updated successfully!"
+}
+POST
+find a comment
+http://localhost:3000/comments/find-or-create
+﻿
+
+Body
+raw (json)
+json
+{
+    "postId": 1,
+    "userId": 2,
+    "content": "This is a sample comment"
+}
+GET
+Get comment have specific word
+http://localhost:3000/comments/search?word=has
+﻿
+
+Query Params
+word
+has
+GET
+Get recent comments
+http://localhost:3000/comments/newest/1
+﻿
+
+GET
+Get comment by pk
+http://localhost:3000/comments/details/25
